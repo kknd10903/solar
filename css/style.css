@@ -1,0 +1,158 @@
+@charset "utf-8";
+@font-face {
+  font-family: 'Paperlogy 5 medium'; /* 내가 부를 이름 */
+  src: url('../font/Paperlogy-5Medium.ttf') format('ttf'); /* 파일 경로 */
+}
+body {font-family: "Paperlogy 5 medium", Arial, "Orbit", sans-serif;}
+
+.container {width: 100%; height: 100vh; overflow: hidden; position: relative;
+ background: url(../img/bg.jpg) center center no-repeat; background-size: cover;}
+
+.logo {color: #fff; text-align: center; 
+ position: absolute; left: 4vw; top: 6vh;}
+.logo>p:nth-child(1) {font-size: 36px; font-weight:bold; letter-spacing: 1px;}
+.logo>p:nth-child(2) {font-size: 12px; letter-spacing: 1px;}
+
+.m_btn {color: #fff; background: none; padding: 20px; cursor: pointer;
+ position: absolute; right: 4vw; top: 6vh; font-size: 24px;}
+
+.copy {color: #fff;
+ position: absolute; right: 0; left: 0; bottom: 6vh; text-align: center;}
+
+/* 컨텐츠 공통 css*/
+.contents {position: absolute; width: 20vw; height: 65vh;
+ left: 50%; margin-left: -10vw; top: 50%; margin-top: -32vh;}
+.box {position: absolute; left: 0; top: 0; width: 100%; height: 100%;}
+.inner {width: 100%; height: 100%; background-color: #f0f7ff;
+ border-radius: 15px; padding: 5vh 2.5vw 7vh;
+ box-shadow: 10px 10px 30px rgba(0,0,0,0.2);
+ display: flex; flex-direction: column; justify-content: space-between;
+ align-items: center;
+ }
+
+.imgbox {width: 15vw; height: 15vw; border: 1px solid #d2d2d2;
+ border-radius: 50%; position: relative; background-size: 120%;
+ background-position: center center; background-repeat: no-repeat;}
+
+.imgbox::before {content: ""; display: block; width: 100%; height: 100%;
+ background-image: inherit; filter: blur(20px) brightness(1.6); 
+ border-radius: 50%; background-position: center center;
+ position: absolute; top: 10%; background-size: 102%;
+ background-repeat: no-repeat;}
+
+.imgbox::after {content: ""; display: block; width: 100%; height: 100%;
+ background-image: inherit; border-radius: 50%; position: absolute;
+ background-position: center center; background-size: 120%;
+ background-repeat: no-repeat;}
+
+/*
+.dot {width: 3vw; height: 3vw; border-radius: 50%; 
+ background-color: #e4f1ff; box-shadow: inset 5px 5px 10px rgba(0,0,0,0.1); position: absolute; z-index: 3; top: 50%; left: 50%; margin-left: -1.5vw;
+ margin-top: -1.5vw;} */
+
+/* 컨텐츠 개별 css*/
+.box1 .imgbox {background: url(../img/earth.jpg);}
+.box2 .imgbox {background: url(../img/mars.jpg);}
+.box3 .imgbox {background: url(../img/jupiter1.jpg);}
+.box4 .imgbox {background: url(../img/planet.jpg);}
+.box5 .imgbox {background: url(../img/uranus1.jpg);}
+.box6 .imgbox {background: url(../img/neptune.jpg);}
+.box7 .imgbox {background: url(../img/mercury.jpg);}
+.box8 .imgbox {background: url(../img/venus.jpg);}
+
+.inner>p:nth-of-type(1) {text-align: center; font-size: 26px;}
+.inner>p:nth-of-type(2) {text-align: center; font-size: 14px; color: #999;}
+
+.control {width: 100%;
+ display: flex; justify-content: space-around; align-items: center;}
+.control>li:nth-child(1) {font-size: 16px; transition: transform 0.8s ease; 
+ cursor: pointer; color: #999;}
+.control>li:nth-child(1):hover {transform: scale(1.3); color: violet;}
+
+.control>li:nth-child(2) {font-size: 22px; transition: transform 0.8s ease; 
+ cursor: pointer;}
+.control>li:nth-child(2):hover {transform: scale(1.5); color: violet;}
+
+.control>li:nth-child(3) {font-size: 16px; transition: transform 0.8s ease; 
+ cursor: pointer; color: #999;}
+.control>li:nth-child(3):hover {transform: scale(1.3); color: violet;}
+
+
+/*위치 조정*/
+.inner {opacity: 0.6; transform: scale(0.85); transition: all 1;}
+.on .inner {opacity: 1; transform: scale(1);}
+.box1 {transform: rotate(0deg) translateY(-100vh);}
+.box2 {transform: rotate(45deg) translateY(-100vh);}
+.box3 {transform: rotate(90deg) translateY(-100vh);}
+.box4 {transform: rotate(135deg) translateY(-100vh);}
+.box5 {transform: rotate(180deg) translateY(-100vh);}
+.box6 {transform: rotate(225deg) translateY(-100vh);}
+.box7 {transform: rotate(270deg) translateY(-100vh);}
+.box8 {transform: rotate(315deg) translateY(-100vh);}
+
+.contents {top: 140%; margin-top: -25vh; transition: all 0.5s;}
+
+/*동작 구현*/
+/*
+.on .active {animation: rote 5s infinite linear;}
+@keyframes rote {
+ 100% {transform: rotate(360deg);}
+}
+.on .stop {animation-play-state: paused;}
+*/
+
+/*박스 좌우 이동  버튼 공통*/
+.btn {width: 60px; height: 60px; position: fixed; top: 50%; z-index: 10;
+ color: #fff; display: flex; font-size: 13px; cursor: pointer;
+ align-items: center;}
+
+.btn::before{content: ""; width: 60px; border-top: 2px solid #fff;
+ position: absolute;}
+.btn::after{content: ""; width: 60px; border-top: 2px solid #fff;
+ position: absolute;}
+
+.btn>span {transition: all 0.5s;}
+
+ /*이전 버튼*/
+.btn_prev {left: 32vw;}
+.btn_prev::before {transform-origin: right center; left: -130%;
+ transition: all 0.5s;}
+.btn_prev::after {transform-origin: right center; left: -130%;
+ transition: all 0.5s;}
+.btn_prev:hover::before {transform: rotate(-150deg);}
+.btn_prev:hover::after {transform: rotate(150deg);}
+.btn_prev:hover>span {transform: translate(100%,0); opacity: 0;}
+
+/*다음 버튼*/
+.btn_next {right: 32vw; text-align: right;}
+.btn_next::before {transform-origin: left center; right: -130%;
+ transition: all 0.5s;}
+.btn_next::after {transform-origin: left center; right: -130%;
+ transition: all 0.5s;}
+.btn_next:hover::before {transform: rotate(-150deg);}
+.btn_next:hover::after {transform: rotate(150deg);}
+.btn_next:hover>span {transform: translate(-100%,0); opacity: 0;}
+
+/*팝업*/
+.popup {position: fixed; top: 0; left: 0;
+ width: 100%; height: 100%; background-color: rgba(0, 0, 0,0.7); z-index: 15;}
+.info {width: 80%; height: 80%; border: 1px solid #d2d2d2;
+ position: absolute; top: 50%; left: 50%; margin-top: -20%; margin-left: -40%;
+ background-color: rgba(0, 0, 0, 0.9); color: #fff;
+ border-bottom: 5px solid #d2d2d2; border-right: 5px solid #d2d2d2;}
+.info>video {width: 100%; height: 100%; display: block; object-fit: cover;
+ opacity: 0.5;}
+
+.info_inner {width: 100%; height: 100%; position: absolute; top: 0; left: 0;
+ display: flex; justify-content: space-between; flex-wrap: wrap;}
+.info_inner>div:first-child {width: 100%; height: 10%; text-align: right;}
+.close {width: 30px; height: 30px; font-size: 24px; border-radius: 50%;
+ margin-top: 2%; margin-right: 2%; cursor: pointer;}
+.p_title {width: 35%; height: 90%; padding: 15vh 10vh;}
+.p_title>p:nth-of-type(1) {font-size: 80px; text-shadow: 0 0 10px #ffffffb4;}
+.p_title>p:nth-of-type(2) {font-size: 24px;}
+.p_title>p:nth-of-type(3) {color: #d2d2d2; font-weight: 300; line-height: 200%;}
+
+.info_inner>figure {width: 60%; height: 90%; text-align: center;
+ padding: 15vh 10vh;}
+.info_inner>figure>iframe {border-radius: 20px;}
