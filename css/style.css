@@ -69,7 +69,7 @@ body {font-family: "Paperlogy 5 medium", Arial, "Orbit", sans-serif;}
  cursor: pointer; color: #999;}
 .control>li:nth-child(1):hover {transform: scale(1.3); color: violet;}
 
-.control>li:nth-child(2) {font-size: 23px; transition: transform 0.8s ease; 
+.control>li:nth-child(2) {font-size: 22px; transition: transform 0.8s ease; 
  cursor: pointer;}
 .control>li:nth-child(2):hover {transform: scale(1.5); color: violet;}
 
